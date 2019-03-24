@@ -15,6 +15,7 @@ bool InRange(std::string_view raw, size_t pos);
 size_t SkipSpaces(std::string_view raw, size_t pos);
 
 LexResult ReadSingleSign(std::string_view raw, size_t pos);
+LexResult ReadStringLiteral(std::string_view raw, size_t pos);
 LexResult Read(std::string_view raw, size_t pos);
 
 } // End namespace lexer

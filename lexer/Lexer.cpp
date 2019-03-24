@@ -16,7 +16,8 @@ bool InRange(string_view raw, size_t pos)
 namespace
 {
 	vector<function<LexResult(string_view, size_t)>> readHandlers = {
-		ReadSingleSign
+		ReadSingleSign,
+		ReadStringLiteral
 	};
 }
 

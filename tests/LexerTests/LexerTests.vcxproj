@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ReadStringLiteralTest.cpp" />
     <ClCompile Include="ReadSingleSignTest.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -141,6 +142,9 @@
     <ProjectReference Include="..\..\lexer\lexer.vcxproj">
       <Project>{f2bf5c16-55a0-4830-b96e-9323f8eb8d16}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

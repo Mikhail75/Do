@@ -158,6 +158,7 @@
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ReadStringLiteral.cpp" />
     <ClCompile Include="LexerUtils.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="ReadSingleSign.cpp" />
