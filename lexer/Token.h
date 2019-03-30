@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include "LexerTypes.h"
 
 namespace lng
 {
@@ -37,10 +38,16 @@ enum TokenType
 	TT_FULL_STOP,           // '.' 
 };
 
+struct TokenData
+{
+	size_t position;
+	opt_string value;
+};
+
 struct Token
 {
 	TokenType type = TT_END;
-	std::optional<std::string> value;
+	TokenData data;
 };
 
 } // End namespace lexer

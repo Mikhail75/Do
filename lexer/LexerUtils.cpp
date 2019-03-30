@@ -2,25 +2,36 @@
 #include "Lexer.h"
 #include "LexerUtils.h"
 
+using namespace std;
+
 namespace lng
 {
 namespace lexer
 {
 bool operator ==(const Token& a, const Token& b)
 {
-	return a.type == b.type && a.value == b.value;
+	return a.type == b.type && a.data.value == b.data.value;
 }
 
-bool operator ==(const LexResult &a, const LexResult &b)
+ostream &operator <<(ostream &stream, const Token &token)
 {
-	return a.first == b.first && a.second == b.second;
+	stream << "[Token] " << endl;
+	stream << "type: " << token.type << "; value: ";
+
+	token.data.value
+		? stream << token.data.value.value() << "; "
+		: stream << "nullopt; ";
+	stream << endl;
+
+	return stream;
 }
 
-std::ostream &operator <<(std::ostream &stream, const LexResult &lexResult)
+ostream &operator <<(ostream &stream, const opt_token &token)
 {
-	stream  << "Token: [Token]" << std::endl;
-	stream  << "Next position: " << lexResult.second << std::endl;
-	
+	token
+		? stream << token.value()
+		: stream << "[nullopt]";
+
 	return stream;
 }
 

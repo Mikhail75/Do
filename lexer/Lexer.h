@@ -1,6 +1,5 @@
 #pragma once
 
-#include <utility>
 #include "Token.h"
 
 namespace lng
@@ -8,15 +7,27 @@ namespace lng
 namespace lexer
 {
 
-using LexData = std::pair<std::string_view, size_t>;
-using LexResult = std::pair<std::optional<Token>, size_t>;
+struct ReadData
+{
+	string_view raw;
+	size_t position;
+};
 
-bool InRange(std::string_view raw, size_t pos);
-size_t SkipSpaces(std::string_view raw, size_t pos);
+size_t SkipSpaces(const ReadData &data);
 
-LexResult ReadSingleSign(std::string_view raw, size_t pos);
-LexResult ReadStringLiteral(std::string_view raw, size_t pos);
-LexResult Read(std::string_view raw, size_t pos);
+bool InRange(const ReadData &data);
+bool Match(const Predicate &predicate, const ReadData &data);
+
+opt_char Read(const ReadData &data);
+opt_char ReadIf(const Predicate &predicate, const ReadData &data);
+string ReadWhile(const Predicate &predicate, const ReadData &data);
+opt_string ReadBetween(char edge, const ReadData &data);
+
+opt_token ReadSingleSign(const ReadData &data);
+opt_token ReadStringLiteral(const ReadData &data);
+opt_token ReadNumber(const ReadData &data);
+
+opt_token ReadToken(const ReadData &data);
 
 } // End namespace lexer
 } // End namespace lng

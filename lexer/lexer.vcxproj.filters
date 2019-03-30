@@ -30,6 +30,9 @@
     <ClInclude Include="LexerUtils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LexerTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -38,16 +41,16 @@
     <ClCompile Include="Lexer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReadSingleSign.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SkipSpaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LexerUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReadStringLiteral.cpp">
+    <ClCompile Include="ReadImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Read.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

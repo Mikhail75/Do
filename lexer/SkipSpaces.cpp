@@ -15,18 +15,21 @@ vector<char> spaces = { ' ', '\t', '\n', '\r' };
 
 }  
 
-size_t SkipSpaces(string_view raw, size_t pos)
+size_t SkipSpaces(const ReadData &data)
 {
-	auto isSpace = [&]() -> bool {
-		return find(spaces.begin(), spaces.end(), raw[pos]) != spaces.end();
+	auto raw = data.raw;
+	auto position = data.position;
+
+	auto isSpace = [&](opt_char value) -> bool {
+		return find(spaces.begin(), spaces.end(), raw[position]) != spaces.end();
 	};
 	
-	while (InRange(raw, pos) && isSpace())
+	while (Match(isSpace, { raw, position }))
 	{
-		++pos;
+		++position;
 	}
 
-	return pos;
+	return position;
 }
 
 } // End namespace lexer

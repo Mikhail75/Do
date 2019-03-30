@@ -5,49 +5,56 @@ using namespace lng::lexer;
 
 namespace
 {
-map<string_view, LexResult> testData = {
+map<string_view, opt_token> testData = {
 	// Correct test data
 	{
 		"\"\"",
-		LexResult {Token{TT_STRING_LITERAL, ""}, 2}
+		Token{ TT_STRING_LITERAL, { 0, "" } }
 	},
 	{
 		"\"abcde\"",
-		LexResult {Token{TT_STRING_LITERAL, "abcde"}, 7}
+		Token{ TT_STRING_LITERAL, { 0, "abcde"} }
 	},
 	{
 		"\"12345\"",
-		LexResult {Token{TT_STRING_LITERAL, "12345"}, 7}
+		Token{ TT_STRING_LITERAL, { 0, "12345"} }
 	},
 	{
 		"\'\'",
-		LexResult {Token{TT_STRING_LITERAL, ""}, 2}
+		Token{ TT_STRING_LITERAL, { 0, ""} }
 	},
 	{
 		"\'abcde\'",
-		LexResult {Token{TT_STRING_LITERAL, "abcde"}, 7}
+		Token{ TT_STRING_LITERAL, { 0, "abcde"} }
 	},
 	{
 		"\'12345\'",
-		LexResult {Token{TT_STRING_LITERAL, "12345"}, 7}
+		Token{ TT_STRING_LITERAL, { 0, "12345"} }
 	},
 	// Incorrect test data
 	{
 		"\"\'",
-		LexResult {nullopt, 0}
+		nullopt
 	},
 	{
 		"\'\"",
-		LexResult {nullopt, 0}
+		nullopt
+	},
+	{
+		"\"abcde",
+		nullopt
+	},
+	{
+		"\'abcde",
+		nullopt
 	},
 };
-
 } // End namespace
 
 TEST_CASE("Can read string literal", "[lexer]")
 {
 	for (const auto &data : testData)
 	{
-		REQUIRE(ReadStringLiteral(data.first, 0) == data.second);
+		REQUIRE(ReadStringLiteral({ data.first, 0 }) == data.second);
 	}
 }

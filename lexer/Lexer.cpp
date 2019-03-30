@@ -8,37 +8,30 @@ namespace lng
 namespace lexer
 {
 
-bool InRange(string_view raw, size_t pos)
-{
-	return pos < raw.size();
-}
-
 namespace
 {
-	vector<function<LexResult(string_view, size_t)>> readHandlers = {
-		ReadSingleSign,
-		ReadStringLiteral
-	};
+
+vector<ReadTokenFunc> readHandlers = {
+	ReadSingleSign,
+	ReadStringLiteral,
+	ReadNumber,
+};
+
 }
 
-LexResult Read(string_view raw, size_t pos)
+opt_token ReadToken(const ReadData &data)
 {
-	pos = SkipSpaces(raw, pos);
+	auto pos = SkipSpaces(data);
 	
-	if (!InRange(raw, pos))
-	{
-		return { nullopt, pos};
-	}
-
 	for (const auto &handler : readHandlers)
 	{
-		if (auto [token, nextPos] = handler(raw, pos); token)
+		if (auto token = handler({ data.raw, pos }); token)
 		{
-			return { token,  nextPos };
+			return token;
 		}
 	}
 
-	return { Token{ TT_ERROR } , pos};
+	return Token{ TT_ERROR };
 }
 
 } // End namespace lexer
