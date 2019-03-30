@@ -5,47 +5,47 @@ using namespace lng::lexer;
 
 namespace
 {
-map<string_view, opt_token> testData = {
+vector<TestCase> testCases = {
 	// Correct test data
 	{
-		"\"\"",
+		"\"\""sv,
 		Token{ TT_STRING_LITERAL, { 0, "" } }
 	},
 	{
-		"\"abcde\"",
+		"\"abcde\""sv,
 		Token{ TT_STRING_LITERAL, { 0, "abcde"} }
 	},
 	{
-		"\"12345\"",
+		"\"12345\""sv,
 		Token{ TT_STRING_LITERAL, { 0, "12345"} }
 	},
 	{
-		"\'\'",
+		"\'\'"sv,
 		Token{ TT_STRING_LITERAL, { 0, ""} }
 	},
 	{
-		"\'abcde\'",
+		"\'abcde\'"sv,
 		Token{ TT_STRING_LITERAL, { 0, "abcde"} }
 	},
 	{
-		"\'12345\'",
+		"\'12345\'"sv,
 		Token{ TT_STRING_LITERAL, { 0, "12345"} }
 	},
 	// Incorrect test data
 	{
-		"\"\'",
+		"\"\'"sv,
 		nullopt
 	},
 	{
-		"\'\"",
+		"\'\""sv,
 		nullopt
 	},
 	{
-		"\"abcde",
+		"\"abcde"sv,
 		nullopt
 	},
 	{
-		"\'abcde",
+		"\'abcde"sv,
 		nullopt
 	},
 };
@@ -53,8 +53,8 @@ map<string_view, opt_token> testData = {
 
 TEST_CASE("Can read string literal", "[lexer]")
 {
-	for (const auto &data : testData)
+	for (const auto &testCase : testCases)
 	{
-		REQUIRE(ReadStringLiteral({ data.first, 0 }) == data.second);
+		REQUIRE(ReadStringLiteral({ testCase.data, 0 }) == testCase.expected);
 	}
 }
