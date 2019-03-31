@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LexerFacade.h" />
     <ClInclude Include="LexerTypes.h" />
     <ClInclude Include="LexerUtils.h" />
     <ClInclude Include="Lexer.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LexerFacade.cpp" />
     <ClCompile Include="Read.cpp" />
     <ClCompile Include="ReadImpl.cpp" />
     <ClCompile Include="LexerUtils.cpp" />

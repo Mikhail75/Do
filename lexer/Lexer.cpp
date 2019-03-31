@@ -15,6 +15,7 @@ vector<ReadTokenFunc> readHandlers = {
 	ReadSingleSign,
 	ReadStringLiteral,
 	ReadNumber,
+	ReadIdentifier,
 };
 
 }

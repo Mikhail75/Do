@@ -18,6 +18,9 @@
     <Filter Include="LexerUtils">
       <UniqueIdentifier>{73569976-bc9e-4ab3-8ede-8d4e1deef06a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LexerFacade">
+      <UniqueIdentifier>{7fbe9b9f-4d04-48fd-802a-d40f53c5a314}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -38,6 +41,9 @@
     <ClInclude Include="LexerUtils.h">
       <Filter>LexerUtils</Filter>
     </ClInclude>
+    <ClInclude Include="LexerFacade.h">
+      <Filter>LexerFacade</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,6 +63,9 @@
     </ClCompile>
     <ClCompile Include="LexerUtils.cpp">
       <Filter>LexerUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="LexerFacade.cpp">
+      <Filter>LexerFacade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

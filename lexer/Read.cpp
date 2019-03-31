@@ -10,7 +10,7 @@ namespace lexer
 
 namespace
 {
-	map<char, TokenType> singleSignToToken {
+	map<char, TokenType> SINGLE_SIGN_TO_TOKEN {
 		{'+', TT_PLUS},
 		{'-', TT_MINUS},
 		{'*', TT_ASTERISK},
@@ -31,17 +31,23 @@ namespace
 		{',', TT_COMMA},
 		{'.', TT_FULL_STOP},
 	};
+
+	const std::vector<char> IDENTIFIER_CHARSET {
+		'A','B','C','D','E','F','G','H','I','J','K', 'L','M','N','O','P','Q','R','S','T',
+		'U','V','W','X','Y','Z','a','b','c','d','e','f', 'g','h','i','j','k','l','m','n',
+		'o','p','q','r','s','t','u','v','w','x','y','z','_',
+	};
 } // End namespace
 
 opt_token ReadSingleSign(const ReadData &data)
 {
 	auto IsSingleSign = [](opt_char value) -> bool {
-		return value && singleSignToToken.find(value.value()) != singleSignToToken.end();
+		return value && SINGLE_SIGN_TO_TOKEN.find(value.value()) != SINGLE_SIGN_TO_TOKEN.end();
 	};
 
 	if (auto singleSign = ReadIf(IsSingleSign, data); singleSign)
 	{
-		auto tokenType = singleSignToToken[singleSign.value()];
+		auto tokenType = SINGLE_SIGN_TO_TOKEN[singleSign.value()];
 		return Token{ tokenType , { data.position} };
 	}
 	return nullopt;
@@ -58,6 +64,13 @@ opt_token ReadNumber(const ReadData &data)
 		auto value = ReadWhile(IsDigit, data);
 		return Token{ TT_NUMBER, { data.position, value } };
 	}
+	return nullopt;
+}
+
+opt_token ReadIdentifier(const ReadData &data)
+{
+	// TODO
+	
 	return nullopt;
 }
 

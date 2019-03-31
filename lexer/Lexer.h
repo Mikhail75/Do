@@ -24,8 +24,9 @@ string ReadWhile(const Predicate &predicate, const ReadData &data);
 opt_string ReadBetween(char edge, const ReadData &data);
 
 opt_token ReadSingleSign(const ReadData &data);
-opt_token ReadStringLiteral(const ReadData &data);
 opt_token ReadNumber(const ReadData &data);
+opt_token ReadIdentifier(const ReadData &data);
+opt_token ReadStringLiteral(const ReadData &data);
 
 opt_token ReadToken(const ReadData &data);
 
