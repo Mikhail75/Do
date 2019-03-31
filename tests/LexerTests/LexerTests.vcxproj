@@ -148,6 +148,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ReadNumberTest.cpp" />
     <ClCompile Include="SkipSpacesTest.cpp" />
     <ClCompile Include="ReadStringLiteralTest.cpp" />
     <ClCompile Include="ReadSingleSignTest.cpp" />

@@ -9,9 +9,14 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Lexer">
+      <UniqueIdentifier>{ac0b6542-1a07-4afe-86cc-95535c29ce44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lexer\Headers">
+      <UniqueIdentifier>{c196f007-4e4e-4117-bb3f-659cd8e6b96b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LexerUtils">
+      <UniqueIdentifier>{73569976-bc9e-4ab3-8ede-8d4e1deef06a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -21,17 +26,17 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Token.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Lexer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LexerUtils.h">
-      <Filter>Header Files</Filter>
+      <Filter>Lexer\Headers</Filter>
     </ClInclude>
     <ClInclude Include="LexerTypes.h">
-      <Filter>Header Files</Filter>
+      <Filter>Lexer\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Token.h">
+      <Filter>Lexer\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LexerUtils.h">
+      <Filter>LexerUtils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -39,19 +44,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Lexer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SkipSpaces.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LexerUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReadImpl.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Lexer</Filter>
     </ClCompile>
     <ClCompile Include="Read.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadImpl.cpp">
+      <Filter>Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="SkipSpaces.cpp">
+      <Filter>Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="LexerUtils.cpp">
+      <Filter>LexerUtils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

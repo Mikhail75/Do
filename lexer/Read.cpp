@@ -41,7 +41,8 @@ opt_token ReadSingleSign(const ReadData &data)
 
 	if (auto singleSign = ReadIf(IsSingleSign, data); singleSign)
 	{
-		return Token{ singleSignToToken[singleSign.value()] , { data.position} };
+		auto tokenType = singleSignToToken[singleSign.value()];
+		return Token{ tokenType , { data.position} };
 	}
 	return nullopt;
 }

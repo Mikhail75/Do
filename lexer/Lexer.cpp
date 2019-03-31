@@ -21,6 +21,11 @@ vector<ReadTokenFunc> readHandlers = {
 
 opt_token ReadToken(const ReadData &data)
 {
+	if (!InRange(data))
+	{
+		return nullopt;
+	}
+	
 	auto pos = SkipSpaces(data);
 	
 	for (const auto &handler : readHandlers)
