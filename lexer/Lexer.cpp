@@ -31,7 +31,7 @@ opt_token ReadToken(const ReadData &data)
 	
 	for (const auto &handler : readHandlers)
 	{
-		if (auto token = handler({ data.raw, pos }); token)
+		if (auto token = handler({ data.raw, pos }))
 		{
 			return token;
 		}

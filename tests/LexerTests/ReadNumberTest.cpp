@@ -31,10 +31,13 @@ vector<TestCase> testCases = {
 };
 }
 
-TEST_CASE("Can read number", "[lexer]")
+TEST_CASE("ReadNumber()", "[lexer]")
 {
-	for (const auto &testCase : testCases)
+	SECTION("can read number")
 	{
-		REQUIRE(ReadNumber({ testCase.data, 0 }) == testCase.expected);
+		for (const auto &testCase : testCases)
+		{
+			REQUIRE(ReadNumber({ testCase.data, 0 }) == testCase.expected);
+		}
 	}
 }

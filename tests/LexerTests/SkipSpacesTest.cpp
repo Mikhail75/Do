@@ -21,10 +21,13 @@ vector<SkipSpacesTestCase> testCases {
 };
 } // End namespace
 
-TEST_CASE("Can skip spaces", "[lexer]")
+TEST_CASE("SkipSpaces()", "[lexer]")
 {
-	for (const auto &testCase : testCases)
+	SECTION("can skip spaces")
 	{
-		REQUIRE(SkipSpaces({ testCase.data, 0 }) == testCase.expected);
+		for (const auto &testCase : testCases)
+		{
+			REQUIRE(SkipSpaces({ testCase.data, 0 }) == testCase.expected);
+		}
 	}
 }

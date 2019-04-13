@@ -34,10 +34,13 @@ vector<TestCase> testCases = {
 };
 }
 
-TEST_CASE("Can read single sign", "[lexer]")
+TEST_CASE("ReadSingleSign()", "[lexer]")
 {
-	for (const auto &testCase : testCases)
+	SECTION("can read single sign")
 	{
-		REQUIRE(ReadSingleSign({ testCase.data, 0 }) == testCase.expected);
+		for (const auto &testCase : testCases)
+		{
+			REQUIRE(ReadSingleSign({ testCase.data, 0 }) == testCase.expected);
+		}
 	}
 }

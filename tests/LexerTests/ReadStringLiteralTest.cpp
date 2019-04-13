@@ -51,10 +51,13 @@ vector<TestCase> testCases = {
 };
 } // End namespace
 
-TEST_CASE("Can read string literal", "[lexer]")
+TEST_CASE("ReadStringLiteral()", "[lexer]")
 {
-	for (const auto &testCase : testCases)
+	SECTION("can read string literal")
 	{
-		REQUIRE(ReadStringLiteral({ testCase.data, 0 }) == testCase.expected);
+		for (const auto &testCase : testCases)
+		{
+			REQUIRE(ReadStringLiteral({ testCase.data, 0 }) == testCase.expected);
+		}
 	}
 }
