@@ -148,6 +148,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LexerFacadeTest.cpp" />
     <ClCompile Include="ReadIdentifierTest.cpp" />
     <ClCompile Include="ReadNumberTest.cpp" />
     <ClCompile Include="SkipSpacesTest.cpp" />

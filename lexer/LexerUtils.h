@@ -12,5 +12,7 @@ bool operator ==(const Token& a, const Token& b);
 std::ostream &operator <<(std::ostream &stream, const Token &token);
 std::ostream &operator <<(std::ostream &stream, const opt_token &token);
 
+size_t GetTokenLength(const Token &token);
+
 } // End namespace lexer
 } // End namespace lng

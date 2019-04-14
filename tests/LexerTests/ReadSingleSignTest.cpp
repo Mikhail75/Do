@@ -7,25 +7,63 @@ namespace
 {
 vector<TestCase> testCases = {
 	// Correct test data
-	{ "+"sv, Token{ TT_PLUS } },
-	{ "-"sv, Token{ TT_MINUS } },
-	{ "*"sv, Token{ TT_ASTERISK } },
-	{ "/"sv, Token{ TT_SLASH } },
-	{ "="sv, Token{ TT_EQUALS } },
-	{ "%"sv, Token{ TT_PERCENT } },
-	{ "&"sv, Token{ TT_AMPERSAND } },
-	{ "|"sv, Token{ TT_VERTICAL_LINE } },
-	{ "!"sv, Token{ TT_EXLAMATION_MARK } },
-	{ "("sv, Token{ TT_LEFT_PARENTHESIS } },
-	{ ")"sv, Token{ TT_RIGHT_PARENTHESIS } },
-	{ "["sv, Token{ TT_LEFT_BRACKET } },
-	{ "]"sv, Token{ TT_RIGHT_BRACKET } },
-	{ "{"sv, Token{ TT_LEFT_CURLY_BRACKET } },
-	{ "}"sv, Token{ TT_RIGHT_CURLY_BRACKET } },
-	{ "<"sv, Token{ TT_LESS_THAN } },
-	{ ">"sv, Token{ TT_GREATER_THAN } },
-	{ ","sv, Token{ TT_COMMA } },
-	{ "."sv, Token{ TT_FULL_STOP } },
+	{
+		"+"sv, Token{ TT_PLUS, { 0, "+" } }
+	},
+	{
+		"-"sv, Token{ TT_MINUS, { 0, "-" } }
+	},
+	{
+		"*"sv, Token{ TT_ASTERISK, { 0, "*" } }
+	},
+	{
+		"/"sv, Token{ TT_SLASH, { 0, "/" } } 
+	},
+	{
+		"="sv, Token{ TT_EQUALS, { 0, "=" } } 
+	},
+	{ 
+		"%"sv, Token{ TT_PERCENT, { 0, "%" } } 
+	},
+	{ 
+		"&"sv, Token{ TT_AMPERSAND, { 0, "&" } } 
+	},
+	{ 
+		"|"sv, Token{ TT_VERTICAL_LINE, { 0, "|" } }
+	},
+	{ 
+		"!"sv, Token{ TT_EXLAMATION_MARK, { 0, "!" } } 
+	},
+	{
+		"("sv, Token{ TT_LEFT_PARENTHESIS, { 0, "(" } }
+	},
+	{
+		")"sv, Token{ TT_RIGHT_PARENTHESIS, { 0, ")" } }
+	},
+	{ 
+		"["sv, Token{ TT_LEFT_BRACKET, { 0, "[" } }
+	},
+	{
+		"]"sv, Token{ TT_RIGHT_BRACKET, { 0, "]" } }
+	},
+	{
+		"{"sv, Token{ TT_LEFT_CURLY_BRACKET, { 0, "{" } } 
+	},
+	{ 
+		"}"sv, Token{ TT_RIGHT_CURLY_BRACKET, { 0, "}" } }
+	},
+	{
+		"<"sv, Token{ TT_LESS_THAN, { 0, "<" } } 
+	},
+	{
+		">"sv, Token{ TT_GREATER_THAN, { 0, ">" } } 
+	},
+	{
+		","sv, Token{ TT_COMMA, { 0, "," } }
+	},
+	{
+		"."sv, Token{ TT_FULL_STOP, { 0, "." } } 
+	},
 	
 	// Incorrect test data
 	{ "A"sv, nullopt },

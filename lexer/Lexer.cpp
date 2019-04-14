@@ -22,12 +22,12 @@ vector<ReadTokenFunc> readHandlers = {
 
 opt_token ReadToken(const ReadData &data)
 {
-	if (!InRange(data))
+	auto pos = SkipSpaces(data);
+	
+	if (!InRange({ data.raw, pos }))
 	{
 		return nullopt;
 	}
-	
-	auto pos = SkipSpaces(data);
 	
 	for (const auto &handler : readHandlers)
 	{

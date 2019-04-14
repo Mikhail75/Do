@@ -1,8 +1,14 @@
 #pragma once
 
+#include "ILexer.h"
 #include "Lexer.h"
 
-class LexerFacade
+namespace lng
+{
+namespace lexer
+{
+
+class LexerFacade : public ILexer
 {
 
 public:
@@ -14,10 +20,16 @@ public:
 		: m_raw(raw), m_position(position)
 	{}
 
-	lng::lexer::opt_token Next();
+	opt_token Next() override;
+	opt_token Peek() override;
+	opt_token_list Peek(size_t numberOfTokens) override;
 
 private:
-
 	std::string_view m_raw;
 	size_t m_position;
+
+	void UpdatePositionAfterReadNextToken(const Token &readedToken);
 };
+
+} // End namespace lexer
+} // End namespace lng

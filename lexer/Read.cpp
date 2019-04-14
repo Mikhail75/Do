@@ -66,8 +66,10 @@ opt_token ReadSingleSign(const ReadData &data)
 {
 	if (auto singleSign = ReadIf(IsSingleSign, data))
 	{
-		auto tokenType = SINGLE_SIGN_TO_TOKEN[singleSign.value()];
-		return Token{ tokenType , { data.position} };
+		auto type = SINGLE_SIGN_TO_TOKEN[singleSign.value()];
+		string value{ singleSign.value() };
+
+		return Token{ type, { data.position, value } };
 	}
 	return nullopt;
 }
@@ -96,9 +98,9 @@ opt_token ReadStringLiteral(const ReadData &data)
 {
 	if (auto quote = ReadIf(IsQuote, data))
 	{
-		if (auto literal = ReadBetween(quote.value(), data))
+		if (auto value = ReadBetween(quote.value(), data))
 		{
-			return Token{ TT_STRING_LITERAL, { data.position, literal} };
+			return Token{ TT_STRING_LITERAL, { data.position, value.value()} };
 		}
 	}
 	return nullopt;

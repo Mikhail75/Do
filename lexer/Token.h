@@ -41,7 +41,7 @@ enum TokenType
 struct TokenData
 {
 	size_t position;
-	opt_string value;
+	string value;
 };
 
 struct Token
@@ -53,4 +53,4 @@ struct Token
 } // End namespace lexer
 } // End namespace dolang
 
-using TokenList = std::vector<lng::lexer::Token>;
+//using TokenList = std::vector<lng::lexer::Token>;

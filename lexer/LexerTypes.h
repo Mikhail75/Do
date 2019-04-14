@@ -22,5 +22,8 @@ using Predicate = std::function<bool(opt_char)>;
 
 using ReadTokenFunc = std::function<opt_token(const ReadData&)>;
 
+using TokenList = std::vector<Token>;
+using opt_token_list = std::optional<TokenList>;
+
 } // End namespace lexer
 } // End namespace lng
