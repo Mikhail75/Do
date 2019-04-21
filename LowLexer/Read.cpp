@@ -1,11 +1,12 @@
 #include "stdafx.h"
-#include "Lexer.h"
+#include "LowLexer.h"
 
 using namespace std;
+using namespace lng::token;
 
 namespace lng
 {
-namespace lexer
+namespace lowlexer
 {
 
 namespace
@@ -62,7 +63,7 @@ bool IsQuote(opt_char value)
 
 } // End namespace
 
-opt_token ReadSingleSign(const ReadData &data)
+OptToken ReadSingleSign(const ReadData &data)
 {
 	if (auto singleSign = ReadIf(IsSingleSign, data))
 	{
@@ -74,7 +75,7 @@ opt_token ReadSingleSign(const ReadData &data)
 	return nullopt;
 }
 
-opt_token ReadNumber(const ReadData &data)
+OptToken ReadNumber(const ReadData &data)
 {
 	if (Match(IsDigit, data))
 	{
@@ -84,7 +85,7 @@ opt_token ReadNumber(const ReadData &data)
 	return nullopt;
 }
 
-opt_token ReadIdentifier(const ReadData &data)
+OptToken ReadIdentifier(const ReadData &data)
 {
 	if (Match(IsIdentifierChar, data) && !Match(IsDigit, data))
 	{
@@ -94,7 +95,7 @@ opt_token ReadIdentifier(const ReadData &data)
 	return nullopt;
 }
 
-opt_token ReadStringLiteral(const ReadData &data)
+OptToken ReadStringLiteral(const ReadData &data)
 {
 	if (auto quote = ReadIf(IsQuote, data))
 	{
@@ -106,5 +107,5 @@ opt_token ReadStringLiteral(const ReadData &data)
 	return nullopt;
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace lowlexer
+} // Namespace lng

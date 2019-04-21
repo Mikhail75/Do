@@ -1,18 +1,17 @@
 #pragma once
 
 #include "Token.h"
-#include "LexerTypes.h"
 
 namespace lng
 {
-namespace lexer
+namespace token
 {
 
 bool operator ==(const Token& a, const Token& b);
 std::ostream &operator <<(std::ostream &stream, const Token &token);
-std::ostream &operator <<(std::ostream &stream, const opt_token &token);
+std::ostream &operator <<(std::ostream &stream, const OptToken &token);
 
 size_t GetTokenLength(const Token &token);
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace token
+} // Namespace lng

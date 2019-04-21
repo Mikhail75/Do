@@ -1,15 +1,16 @@
 #include "test.h"
-#include "LexerFacade.h"
+#include "LowLexerFacade.h"
 
 using namespace std;
-using namespace lng::lexer;
+using namespace lng::lowlexer;
+using namespace lng::token;
 
 namespace
 {
-	using LexerFacadeTestCase = AbstractTestCase<std::string_view, vector<opt_token>>;
+	using LexerFacadeTestCase = AbstractTestCase<std::string_view, vector<OptToken>>;
 }
 
-TEST_CASE("LexerFacade", "[lexer]")
+TEST_CASE("LowLexerFacade", "[lowlexer]")
 {
 	SECTION("can read tokens")
 	{
@@ -24,7 +25,7 @@ TEST_CASE("LexerFacade", "[lexer]")
 			}
 		};
 
-		LexerFacade lexer(testCase.data);
+		LowLexerFacade lexer(testCase.data);
 
 		for (const auto &expected : testCase.expected)
 		{

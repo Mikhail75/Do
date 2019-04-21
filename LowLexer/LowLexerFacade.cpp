@@ -1,16 +1,17 @@
 #include "stdafx.h"
-#include "LexerFacade.h"
-#include "LexerUtils.h"
+#include "LowLexerFacade.h"
+#include "TokenUtils.h"
 
 
 using namespace std;
+using namespace lng::token;
 
 namespace lng
 {
-namespace lexer
+namespace lowlexer
 {
 
-opt_token LexerFacade::Next()
+OptToken LowLexerFacade::Next()
 {
 	if (auto token = ReadToken({ m_raw, m_position }))
 	{
@@ -21,7 +22,7 @@ opt_token LexerFacade::Next()
 	return nullopt;
 }
 
-opt_token LexerFacade::Peek()
+OptToken LowLexerFacade::Peek()
 {
 	auto positionBeforePeek = m_position;
 	auto token = Next();
@@ -30,10 +31,10 @@ opt_token LexerFacade::Peek()
 	return token;
 }
 
-opt_token_list LexerFacade::Peek(size_t numberOfTokens)
+OptTokenList LowLexerFacade::Peek(size_t numberOfTokens)
 {
 	auto positionBeforePeek = m_position;
-	vector<Token> tokens;
+	TokenList tokens;
 	
 	for (size_t i = 0; i < numberOfTokens; ++i)
 	{
@@ -46,12 +47,12 @@ opt_token_list LexerFacade::Peek(size_t numberOfTokens)
 
 	if (tokens.size() == numberOfTokens)
 	{
-		return opt_token_list{ tokens };
+		return OptTokenList{ tokens };
 	}
 	return nullopt;
 }
 
-void LexerFacade::UpdatePositionAfterReadNextToken(const Token &readedToken)
+void LowLexerFacade::UpdatePositionAfterReadNextToken(const Token &readedToken)
 {
 	size_t spacesCountBeforeToken = readedToken.data.position - m_position;
 	size_t tokenLength = GetTokenLength(readedToken);
@@ -59,5 +60,5 @@ void LexerFacade::UpdatePositionAfterReadNextToken(const Token &readedToken)
 	m_position += spacesCountBeforeToken + tokenLength;
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace lowlexer
+} // Namespace lng

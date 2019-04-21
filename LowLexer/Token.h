@@ -3,12 +3,11 @@
 #include <string>
 #include <vector>
 #include <optional>
-#include "LexerTypes.h"
 
 namespace lng
 {
-namespace lexer
-{ 
+namespace token
+{
 
 enum TokenType
 {
@@ -41,7 +40,7 @@ enum TokenType
 struct TokenData
 {
 	size_t position;
-	string value;
+	std::string value;
 };
 
 struct Token
@@ -50,7 +49,9 @@ struct Token
 	TokenData data;
 };
 
-} // End namespace lexer
-} // End namespace dolang
+using OptToken = std::optional<Token>;
+using TokenList = std::vector<Token>;
+using OptTokenList = std::optional<TokenList>;
 
-//using TokenList = std::vector<lng::lexer::Token>;
+} // Namespace token
+} // Namespace lng

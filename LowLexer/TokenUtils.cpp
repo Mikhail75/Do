@@ -1,12 +1,13 @@
 #include "stdafx.h"
-#include "Lexer.h"
-#include "LexerUtils.h"
+#include "LowLexer.h"
+#include "TokenUtils.h"
 
 using namespace std;
+using namespace lng::token;
 
 namespace lng
 {
-namespace lexer
+namespace token
 {
 
 bool operator ==(const Token& a, const Token& b)
@@ -23,7 +24,7 @@ ostream &operator <<(ostream &stream, const Token &token)
 	return stream;
 }
 
-ostream &operator <<(ostream &stream, const opt_token &token)
+ostream &operator <<(ostream &stream, const OptToken &token)
 {
 	token
 		? stream << token.value()
@@ -44,5 +45,5 @@ size_t GetTokenLength(const Token &token)
 	return length;
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace token
+} // Namespace lng

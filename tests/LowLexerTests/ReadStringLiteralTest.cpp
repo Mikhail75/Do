@@ -1,7 +1,8 @@
 #include "test.h"
 
 using namespace std;
-using namespace lng::lexer;
+using namespace lng::lowlexer;
+using namespace lng::token;
 
 namespace
 {
@@ -51,7 +52,7 @@ vector<TestCase> testCases = {
 };
 } // End namespace
 
-TEST_CASE("ReadStringLiteral()", "[lexer]")
+TEST_CASE("ReadStringLiteral()", "[lowlexer]")
 {
 	SECTION("can read string literal")
 	{

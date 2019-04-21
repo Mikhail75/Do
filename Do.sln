@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lexer", "lexer\lexer.vcxproj", "{F2BF5C16-55A0-4830-B96E-9323F8EB8D16}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LowLexer", "LowLexer\LowLexer.vcxproj", "{F2BF5C16-55A0-4830-B96E-9323F8EB8D16}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{904FA9B9-AEFD-41B2-856E-65A994748FF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{8CCB0B86-7857-4FC6-988C-012B9E723151}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LexerTests", "tests\LexerTests\LexerTests.vcxproj", "{1A998AC4-C8A3-4BE0-A616-61257D68159F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LexerTests", "tests\LowLexerTests\LexerTests.vcxproj", "{1A998AC4-C8A3-4BE0-A616-61257D68159F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

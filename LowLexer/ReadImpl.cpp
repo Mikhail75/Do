@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "Lexer.h"
+#include "LowLexer.h"
 
 using namespace std;
 
 namespace lng
 {
-namespace lexer
+namespace lowlexer
 {
 
 bool InRange(const ReadData &data)
@@ -69,5 +69,5 @@ opt_string ReadBetween(char edge, const ReadData &data)
 	return nullopt;
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace lowlexer
+} // Namespace lng

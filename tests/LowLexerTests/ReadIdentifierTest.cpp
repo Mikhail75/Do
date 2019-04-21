@@ -1,7 +1,8 @@
 ﻿#include "test.h"
 
 using namespace std;
-using namespace lng::lexer;
+using namespace lng::lowlexer;
+using namespace lng::token;
 
 namespace
 {
@@ -41,7 +42,7 @@ namespace
 	};
 }
 
-TEST_CASE("ReadIdentifier()", "[lexer]")
+TEST_CASE("ReadIdentifier()", "[lowlexer]")
 {
 	SECTION("can read identifier")
 	{
@@ -58,7 +59,7 @@ TEST_CASE("ReadIdentifier()", "[lexer]")
 
 		for (char value : charset)
 		{
-			opt_token expected = make_optional(Token{ TT_IDENTIFIER, {0, prefix + value } });
+			OptToken expected = make_optional(Token{ TT_IDENTIFIER, {0, prefix + value } });
 			REQUIRE(ReadIdentifier({ prefix + &value, 0 }) == expected);
 		}
 	}

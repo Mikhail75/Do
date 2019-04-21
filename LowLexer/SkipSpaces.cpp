@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "Lexer.h"
+#include "LowLexer.h"
 
 using namespace std;
 
 namespace lng
 {
-namespace lexer
+namespace lowlexer
 {
 
 namespace
@@ -32,5 +32,5 @@ size_t SkipSpaces(const ReadData &data)
 	return position;
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace lowlexer
+} // Namespace lng

@@ -1,7 +1,8 @@
 #include "test.h"
 
 using namespace std;
-using namespace lng::lexer;
+using namespace lng::lowlexer;
+using namespace lng::token;
 
 namespace
 {
@@ -21,7 +22,7 @@ vector<SkipSpacesTestCase> testCases {
 };
 } // End namespace
 
-TEST_CASE("SkipSpaces()", "[lexer]")
+TEST_CASE("SkipSpaces()", "[lowlexer]")
 {
 	SECTION("can skip spaces")
 	{

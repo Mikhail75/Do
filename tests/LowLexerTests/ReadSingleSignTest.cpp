@@ -1,7 +1,8 @@
 #include "test.h"
 
 using namespace std;
-using namespace lng::lexer;
+using namespace lng::lowlexer;
+using namespace lng::token;
 
 namespace
 {
@@ -72,7 +73,7 @@ vector<TestCase> testCases = {
 };
 }
 
-TEST_CASE("ReadSingleSign()", "[lexer]")
+TEST_CASE("ReadSingleSign()", "[lowlexer]")
 {
 	SECTION("can read single sign")
 	{

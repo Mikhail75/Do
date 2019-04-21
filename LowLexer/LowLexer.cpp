@@ -1,11 +1,12 @@
 #include "stdafx.h"
-#include "Lexer.h"
+#include "LowLexer.h"
 
 using namespace std;
+using namespace lng::token;
 
 namespace lng
 {
-namespace lexer
+namespace lowlexer
 {
 
 namespace
@@ -20,7 +21,7 @@ vector<ReadTokenFunc> readHandlers = {
 
 }
 
-opt_token ReadToken(const ReadData &data)
+OptToken ReadToken(const ReadData &data)
 {
 	auto pos = SkipSpaces(data);
 	
@@ -40,5 +41,5 @@ opt_token ReadToken(const ReadData &data)
 	return Token{ TT_ERROR };
 }
 
-} // End namespace lexer
-} // End namespace lng
+} // Namespace lowlexer
+} // Namespace lng

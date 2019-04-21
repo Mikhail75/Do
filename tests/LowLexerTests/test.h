@@ -5,8 +5,8 @@
 
 #include "catch.hpp"
 
-#include "Lexer.h"
-#include "LexerUtils.h"
+#include "LowLexer.h"
+#include "TokenUtils.h"
 
 template <typename TestData, typename Expected>
 struct AbstractTestCase
@@ -15,4 +15,4 @@ struct AbstractTestCase
 	Expected expected;
 };
 
-using TestCase = AbstractTestCase<std::string_view, lng::lexer::opt_token>;
+using TestCase = AbstractTestCase<std::string_view, lng::token::OptToken>;

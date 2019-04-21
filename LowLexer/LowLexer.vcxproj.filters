@@ -15,10 +15,10 @@
     <Filter Include="Lexer\Headers">
       <UniqueIdentifier>{c196f007-4e4e-4117-bb3f-659cd8e6b96b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LexerUtils">
+    <Filter Include="TokenUtils">
       <UniqueIdentifier>{73569976-bc9e-4ab3-8ede-8d4e1deef06a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LexerFacade">
+    <Filter Include="LowLexerFacade">
       <UniqueIdentifier>{7fbe9b9f-4d04-48fd-802a-d40f53c5a314}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -29,31 +29,28 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Lexer.h">
-      <Filter>Lexer\Headers</Filter>
-    </ClInclude>
     <ClInclude Include="LexerTypes.h">
       <Filter>Lexer\Headers</Filter>
     </ClInclude>
     <ClInclude Include="Token.h">
       <Filter>Lexer\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="LexerUtils.h">
-      <Filter>LexerUtils</Filter>
-    </ClInclude>
-    <ClInclude Include="LexerFacade.h">
-      <Filter>LexerFacade</Filter>
-    </ClInclude>
     <ClInclude Include="ILexer.h">
+      <Filter>Lexer\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenUtils.h">
+      <Filter>TokenUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLexerFacade.h">
+      <Filter>LowLexerFacade</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLexer.h">
       <Filter>Lexer\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lexer.cpp">
-      <Filter>Lexer</Filter>
     </ClCompile>
     <ClCompile Include="Read.cpp">
       <Filter>Lexer</Filter>
@@ -64,11 +61,14 @@
     <ClCompile Include="SkipSpaces.cpp">
       <Filter>Lexer</Filter>
     </ClCompile>
-    <ClCompile Include="LexerUtils.cpp">
-      <Filter>LexerUtils</Filter>
+    <ClCompile Include="TokenUtils.cpp">
+      <Filter>TokenUtils</Filter>
     </ClCompile>
-    <ClCompile Include="LexerFacade.cpp">
-      <Filter>LexerFacade</Filter>
+    <ClCompile Include="LowLexerFacade.cpp">
+      <Filter>LowLexerFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="LowLexer.cpp">
+      <Filter>Lexer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
