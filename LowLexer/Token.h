@@ -35,6 +35,8 @@ enum TokenType
 	TT_GREATER_THAN,        // '>'
 	TT_COMMA,               // ','
 	TT_FULL_STOP,           // '.' 
+
+	TT_FLOAT_UMBER,
 };
 
 struct TokenData

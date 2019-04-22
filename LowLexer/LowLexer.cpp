@@ -12,7 +12,7 @@ namespace lowlexer
 namespace
 {
 
-vector<ReadTokenFunc> readHandlers = {
+vector<function<OptToken(const ReadData&)>> readHandlers = {
 	ReadSingleSign,
 	ReadStringLiteral,
 	ReadNumber,
