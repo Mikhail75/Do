@@ -9,37 +9,27 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Lexer">
-      <UniqueIdentifier>{901be4f9-4e8b-4a8b-9414-32d9a2cf97f1}</UniqueIdentifier>
+    <Filter Include="tests">
+      <UniqueIdentifier>{830084df-d092-4923-b435-48f0fe9f9e3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
+    <ClInclude Include="test.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
+    <ClInclude Include="MockLowLexer.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HighLexer.h">
-      <Filter>Lexer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HighLexer.cpp">
-      <Filter>Lexer</Filter>
+    <ClCompile Include="MockLowLexer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Read.cpp">
-      <Filter>Lexer</Filter>
-    </ClCompile>
-    <ClCompile Include="ReadImpl.cpp">
-      <Filter>Lexer</Filter>
+    <ClCompile Include="ReadFloatNumberTest.cpp">
+      <Filter>tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

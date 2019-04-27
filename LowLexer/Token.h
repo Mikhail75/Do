@@ -36,7 +36,7 @@ enum TokenType
 	TT_COMMA,               // ','
 	TT_FULL_STOP,           // '.' 
 
-	TT_FLOAT_UMBER,
+	TT_FLOAT_NUMBER,
 };
 
 struct TokenData

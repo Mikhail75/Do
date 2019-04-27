@@ -12,15 +12,22 @@ namespace highlexer
 namespace
 {
 
-vector<function<OptToken(const ILexer&)>> readHandlers = {
-
+vector<function<OptToken(ILexer&)>> readHandlers = {
+	ReadFloatNumber,
 };
 
 }
 
-OptToken ReadToken(const ILexer &lowlexer)
+OptToken ReadToken(ILexer &lowlexer)
 {
-	return nullopt;
+	for (const auto &handler : readHandlers)
+	{
+		if (auto token = handler(lowlexer))
+		{
+			return token;
+		}
+	}
+	return lowlexer.Next();
 }
 
 } // namespace highlexer
