@@ -4,9 +4,8 @@ using namespace std;
 using namespace lng::lowlexer;
 using namespace lng::token;
 
-namespace
-{
-	vector<TestCase> testCases = {
+TestCases<DefaultTestCase> ReadIdentifierTestCases(
+	{ // Correct test cases
 		{
 			"a"sv,
 			Token{ TT_IDENTIFIER, { 0, "a" } }
@@ -39,14 +38,16 @@ namespace
 			"abcde"sv,
 			Token{ TT_IDENTIFIER, { 0, "abcde" } }
 		},
-	};
-}
+	},
+	{ // Incorrect test cases
+	}
+);
 
 TEST_CASE("ReadIdentifier()", "[lowlexer]")
 {
 	SECTION("can read identifier")
 	{
-		for (const auto &testCase : testCases)
+		for (const auto &testCase : ReadIdentifierTestCases.AllTestCases())
 		{
 			REQUIRE(ReadIdentifier({ testCase.data, 0 }) == testCase.expected);
 		}

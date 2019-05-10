@@ -6,7 +6,6 @@ using namespace lng::token;
 
 namespace
 {
-using SkipSpacesTestCase = AbstractTestCase<std::string_view, size_t>;
 vector<SkipSpacesTestCase> testCases {
 	{" a"sv, 1},
 	{"  a"sv, 2},

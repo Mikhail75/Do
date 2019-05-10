@@ -149,6 +149,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ReadTokenTest.cpp" />
     <ClCompile Include="LowLexerFacadeTest.cpp" />
     <ClCompile Include="ReadIdentifierTest.cpp" />
     <ClCompile Include="ReadNumberTest.cpp" />
