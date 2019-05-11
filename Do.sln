@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HighLexer", "HighLexer\High
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HighLexerTests", "tests\HighLexerTests\HighLexerTests.vcxproj", "{3169F0EF-0374-4088-B987-B93576FF15C4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parser", "Parser\Parser.vcxproj", "{FFA617D2-3047-4D02-BB28-E40CA65B5913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,6 +57,14 @@ Global
 		{3169F0EF-0374-4088-B987-B93576FF15C4}.Release|x64.Build.0 = Release|x64
 		{3169F0EF-0374-4088-B987-B93576FF15C4}.Release|x86.ActiveCfg = Release|Win32
 		{3169F0EF-0374-4088-B987-B93576FF15C4}.Release|x86.Build.0 = Release|Win32
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Debug|x64.ActiveCfg = Debug|x64
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Debug|x64.Build.0 = Debug|x64
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Debug|x86.ActiveCfg = Debug|Win32
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Debug|x86.Build.0 = Debug|Win32
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Release|x64.ActiveCfg = Release|x64
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Release|x64.Build.0 = Release|x64
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Release|x86.ActiveCfg = Release|Win32
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +74,7 @@ Global
 		{1A998AC4-C8A3-4BE0-A616-61257D68159F} = {904FA9B9-AEFD-41B2-856E-65A994748FF1}
 		{827C5035-3CEC-4D57-A53D-4AB65777221D} = {8CCB0B86-7857-4FC6-988C-012B9E723151}
 		{3169F0EF-0374-4088-B987-B93576FF15C4} = {904FA9B9-AEFD-41B2-856E-65A994748FF1}
+		{FFA617D2-3047-4D02-BB28-E40CA65B5913} = {8CCB0B86-7857-4FC6-988C-012B9E723151}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {61420BD3-95A4-4CDE-A1FB-CFE61148AB88}
