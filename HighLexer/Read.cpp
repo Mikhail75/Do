@@ -12,18 +12,15 @@ namespace highlexer
 
 OptToken ReadFloatNumber(ILexer &lowlexer)
 {
-	if (auto nextThreeTokens = lowlexer.Peek(3))
-	{
-		auto tokens = nextThreeTokens.value();
-		TokenTypesList expected = { TT_NUMBER, TT_FULL_STOP, TT_NUMBER };
-		
-		if (MatchTokensByTypes(tokens, expected) && NoSpacesBetweenTokens(tokens))
-		{
-			auto position = tokens[0].data.position;
-			auto value = tokens[0].data.value + "." + tokens[2].data.value;
+	auto tokens = lowlexer.Peek(3);
+	TokenTypesList expected = { TT_NUMBER, TT_FULL_STOP, TT_NUMBER };
 
-			return Token{ TT_FLOAT_NUMBER, {position, value} };
-		}
+	if (MatchTokensByTypes(tokens, expected) && NoSpacesBetweenTokens(tokens))
+	{
+		auto position = tokens[0].data.position;
+		auto value = tokens[0].data.value + "." + tokens[2].data.value;
+
+		return Token{ TT_FLOAT_NUMBER, {position, value} };
 	}
 
 	return nullopt;

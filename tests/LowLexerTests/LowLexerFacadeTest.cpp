@@ -21,11 +21,11 @@ namespace
 	};
 }
 
-TEST_CASE("LowLexerFacade", "[lowlexer]")
+TEST_CASE("CLowLexerFacade", "[lowlexer]")
 {
 	SECTION("can read tokens")
 	{
-		LowLexerFacade lexer(testCase.data);
+		CLowLexerFacade lexer(testCase.data);
 
 		for (const auto &expected : testCase.expected)
 		{
@@ -35,7 +35,7 @@ TEST_CASE("LowLexerFacade", "[lowlexer]")
 
 	SECTION("can peek one token")
 	{
-		LowLexerFacade lexer(testCase.data);
+		CLowLexerFacade lexer(testCase.data);
 
 		REQUIRE(lexer.Peek() == testCase.expected[0]);
 		REQUIRE(lexer.Next() == testCase.expected[0]);
@@ -43,8 +43,8 @@ TEST_CASE("LowLexerFacade", "[lowlexer]")
 
 	SECTION("can peek several tokens")
 	{
-		LowLexerFacade lexer(testCase.data);
-		auto peekedTokens = lexer.Peek(4).value();
+		CLowLexerFacade lexer(testCase.data);
+		auto peekedTokens = lexer.Peek(4);
 
 		for (size_t i = 0; i < peekedTokens.size(); ++i)
 		{
@@ -55,5 +55,20 @@ TEST_CASE("LowLexerFacade", "[lowlexer]")
 		{
 			REQUIRE(lexer.Next() == expected);
 		}
+	}
+
+	SECTION("Can return position of next token")
+	{
+		CLowLexerFacade lexer(testCase.data);
+
+		REQUIRE(lexer.NextPosition() == 3);
+
+		lexer.Next();
+		REQUIRE(lexer.NextPosition() == 5);
+
+		lexer.Next();
+		lexer.Next();
+		lexer.Next();
+		REQUIRE(lexer.NextPosition() == 32);
 	}
 }

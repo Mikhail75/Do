@@ -14,42 +14,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\stdafx.h">
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\targetver.h">
+    <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\ast.h">
+    <ClInclude Include="ast.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\IASTNode.h">
+    <ClInclude Include="IASTNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IASTVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\Parser.h">
+    <ClInclude Include="Parser.h">
       <Filter>Parser</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\ParserUtils.h">
+    <ClInclude Include="ParserUtils.h">
       <Filter>Parser</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\MatchException.h">
+    <ClInclude Include="MatchException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\%403 курс\compilers\Do\Parser\MatchResult.h">
+    <ClInclude Include="MatchResult.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\%403 курс\compilers\Do\Parser\stdafx.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\%403 курс\compilers\Do\Parser\Parser.cpp">
+    <ClCompile Include="Parser.cpp">
       <Filter>Parser</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\%403 курс\compilers\Do\Parser\ParserUtils.cpp">
+    <ClCompile Include="ParserUtils.cpp">
       <Filter>Parser</Filter>
     </ClCompile>
   </ItemGroup>

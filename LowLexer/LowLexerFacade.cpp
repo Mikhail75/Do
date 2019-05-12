@@ -11,7 +11,7 @@ namespace lng
 namespace lowlexer
 {
 
-OptToken LowLexerFacade::Next()
+OptToken CLowLexerFacade::Next()
 {
 	if (auto token = ReadToken({ m_raw, m_position }))
 	{
@@ -22,7 +22,7 @@ OptToken LowLexerFacade::Next()
 	return nullopt;
 }
 
-OptToken LowLexerFacade::Peek()
+OptToken CLowLexerFacade::Peek()
 {
 	auto positionBeforePeek = m_position;
 	auto token = Next();
@@ -31,7 +31,7 @@ OptToken LowLexerFacade::Peek()
 	return token;
 }
 
-OptTokenList LowLexerFacade::Peek(size_t numberOfTokens)
+TokenList CLowLexerFacade::Peek(size_t numberOfTokens)
 {
 	auto positionBeforePeek = m_position;
 	TokenList tokens;
@@ -45,14 +45,15 @@ OptTokenList LowLexerFacade::Peek(size_t numberOfTokens)
 	}
 	m_position = positionBeforePeek;
 
-	if (tokens.size() == numberOfTokens)
-	{
-		return OptTokenList{ tokens };
-	}
-	return nullopt;
+	return tokens;
 }
 
-void LowLexerFacade::UpdatePositionAfterReadNextToken(const Token &readedToken)
+size_t CLowLexerFacade::NextPosition()
+{
+	return SkipSpaces({ m_raw, m_position });
+}
+
+void CLowLexerFacade::UpdatePositionAfterReadNextToken(const Token &readedToken)
 {
 	size_t spacesCountBeforeToken = readedToken.data.position - m_position;
 	size_t tokenLength = GetTokenLength(readedToken);

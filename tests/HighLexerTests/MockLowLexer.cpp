@@ -25,7 +25,7 @@ token::OptToken CMockLowLexer::Peek()
 	return NextImpl();
 }
 
-token::OptTokenList CMockLowLexer::Peek(size_t numberOfTokens)
+token::TokenList CMockLowLexer::Peek(size_t numberOfTokens)
 {
 	auto positionBeforePeek = m_position;
 	token::TokenList tokens;
@@ -39,14 +39,15 @@ token::OptTokenList CMockLowLexer::Peek(size_t numberOfTokens)
 	}
 	m_position = positionBeforePeek;
 
-	if (tokens.size() == numberOfTokens)
-	{
-		return token::OptTokenList{ tokens };
-	}
-	return nullopt;
+	return tokens;
 }
 
-token::OptToken CMockLowLexer::NextImpl()
+size_t CMockLowLexer::NextPosition()
+{
+	throw std::logic_error("This method cannot be used in this class");
+}
+
+	token::OptToken CMockLowLexer::NextImpl()
 {
 	if (m_position < m_tokens.size())
 	{

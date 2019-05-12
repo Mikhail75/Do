@@ -8,21 +8,22 @@ namespace lng
 namespace lowlexer
 {
 
-class LowLexerFacade : public ILexer
+class CLowLexerFacade : public ILexer
 {
 
 public:
-	LowLexerFacade(std::string_view raw)
+	CLowLexerFacade(std::string_view raw)
 		: m_raw(raw), m_position(0)
 	{}
 
-	LowLexerFacade(std::string_view raw, size_t position)
+	CLowLexerFacade(std::string_view raw, size_t position)
 		: m_raw(raw), m_position(position)
 	{}
 
 	token::OptToken Next() override;
 	token::OptToken Peek() override;
-	token::OptTokenList Peek(size_t numberOfTokens) override;
+	token::TokenList Peek(size_t numberOfTokens) override;
+	size_t NextPosition() override;
 
 private:
 	std::string_view m_raw;

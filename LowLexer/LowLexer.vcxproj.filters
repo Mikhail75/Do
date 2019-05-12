@@ -41,11 +41,11 @@
     <ClInclude Include="TokenUtils.h">
       <Filter>TokenUtils</Filter>
     </ClInclude>
-    <ClInclude Include="LowLexerFacade.h">
-      <Filter>LowLexerFacade</Filter>
-    </ClInclude>
     <ClInclude Include="LowLexer.h">
       <Filter>Lexer\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="LowLexerFacade.h">
+      <Filter>LowLexerFacade</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -64,11 +64,11 @@
     <ClCompile Include="TokenUtils.cpp">
       <Filter>TokenUtils</Filter>
     </ClCompile>
-    <ClCompile Include="LowLexerFacade.cpp">
-      <Filter>LowLexerFacade</Filter>
-    </ClCompile>
     <ClCompile Include="LowLexer.cpp">
       <Filter>Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="LowLexerFacade.cpp">
+      <Filter>LowLexerFacade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
