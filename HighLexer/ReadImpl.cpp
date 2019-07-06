@@ -10,7 +10,8 @@ namespace lng
 namespace highlexer
 {
 
-bool MatchTokensByTypes(const TokenList &tokens, const TokenTypesList &expected)
+template <typename T>
+bool MatchTokens(const TokenList &tokens, const vector<T> &expected, const function<bool(size_t index)> &predicate)
 {
 	if (tokens.size() != expected.size())
 	{
@@ -19,13 +20,43 @@ bool MatchTokensByTypes(const TokenList &tokens, const TokenTypesList &expected)
 
 	for (size_t i = 0; i < tokens.size(); ++i)
 	{
-		if (tokens[i].type != expected[i])
+		if (!predicate(i))
 		{
 			return false;
 		}
 	}
 
 	return true;
+}
+
+bool MatchTokensByTypes(const TokenList &tokens, const TokenTypesList &expected)
+{
+	auto predicate = [&](size_t index) {
+		return tokens[index].type == expected[index];
+	};
+	return MatchTokens(tokens, expected, predicate);
+}
+
+bool MatchTokensByValues(const TokenList &tokens, const vector<string> &expected)
+{
+	auto predicate = [&](size_t index) {
+		return tokens[index].data.value == expected[index];
+	};
+	return MatchTokens(tokens, expected, predicate);
+}
+
+bool MatchTokensByValues(const vector<pair<Token, string>> &matches)
+{
+	TokenList tokens;
+	vector<string> expected;
+
+	for (const auto &match : matches)
+	{
+		tokens.push_back(match.first);
+		expected.push_back(match.second);
+	}
+
+	return MatchTokensByValues(tokens, expected);
 }
 
 bool SpacesBetweenTokens(const TokenList &tokens)

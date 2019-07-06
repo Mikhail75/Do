@@ -11,19 +11,19 @@ namespace parser
 class MatchException : public std::exception
 {
 public:
-	MatchException(const MatchErrorInfo &matchErrorInfo, std::string what = "Match token error")
-		: std::exception(what.c_str()), m_matchErrorInfo(matchErrorInfo)
+	MatchException(const MatchError &matchError, std::string what = "Match token error")
+		: std::exception(what.c_str()), m_matchError(matchError)
 	{}
 
 	~MatchException() noexcept override = default;
 
-	MatchErrorInfo GetMatchErrorInfo() const
+	MatchError GetMatchErrorInfo() const
 	{
-		return m_matchErrorInfo;
+		return m_matchError;
 	}
 	
 private:
-	MatchErrorInfo m_matchErrorInfo;
+	MatchError m_matchError;
 };
 
 } // namespace parser

@@ -148,6 +148,7 @@
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ReadMainFunctionTest.cpp" />
     <ClCompile Include="ReadFloatNumberTest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MockLowLexer.cpp" />

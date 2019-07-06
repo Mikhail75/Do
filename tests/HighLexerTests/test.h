@@ -15,3 +15,5 @@ struct AbstractTestCase
 	TestData data;
 	Expected expected;
 };
+
+using TestCase = AbstractTestCase<lng::token::TokenList, lng::token::OptToken>;

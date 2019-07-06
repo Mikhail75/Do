@@ -37,6 +37,8 @@ enum TokenType
 	TT_FULL_STOP,           // '.' 
 
 	TT_FLOAT_NUMBER,
+
+	TT_FUNCTION_MAIN,       // Begin of function "main"
 };
 
 struct TokenData

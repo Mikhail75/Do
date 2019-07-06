@@ -6,7 +6,6 @@ using namespace lng::highlexer;
 
 namespace
 {
-using TestCase = AbstractTestCase<TokenList, OptToken>;
 
 vector<TestCase> testCases = {
 	{ // Test case

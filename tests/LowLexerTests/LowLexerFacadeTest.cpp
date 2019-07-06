@@ -9,32 +9,60 @@ namespace
 {
 	using LexerFacadeTestCase = AbstractTestCase<std::string_view, vector<OptToken>>;
 	
-	LexerFacadeTestCase testCase = {
-			" \n + 'literal' identifier 12345 ",
-			{
-				Token{TT_PLUS, {3, "+"}},
-				Token{TT_STRING_LITERAL, {5, "literal"}},
-				Token{TT_IDENTIFIER, {15, "identifier"}},
-				Token{TT_NUMBER, {26, "12345"}},
-				nullopt,
+	TestCases<LexerFacadeTestCase> lexerFacadeTestCases(
+		{ // Correct test cases
+			{ // Test case #1
+				" \n + 'literal' identifier 12345 ",
+				{
+					Token{TT_PLUS, {3, "+"}},
+					Token{TT_STRING_LITERAL, {5, "literal"}},
+					Token{TT_IDENTIFIER, {15, "identifier"}},
+					Token{TT_NUMBER, {26, "12345"}},
+					nullopt,
+				}
+			},
+			{ // Test case #2
+				"26.945",
+				{
+					Token{TT_NUMBER, {0, "26"}},
+					Token{TT_FULL_STOP, {2, "."}},
+					Token{TT_NUMBER, {3, "945"}},
+				}
+			},
+			{ // Test case #3
+				"[func] main {",
+				{
+					Token{TT_LEFT_BRACKET, {0, "["}},
+					Token{TT_IDENTIFIER, {1, "func"}},
+					Token{TT_RIGHT_BRACKET, {5, "]"}},
+					Token{TT_IDENTIFIER, {7, "main"}},
+					Token{TT_LEFT_CURLY_BRACKET, {12, "{"}},
+				}
 			}
-	};
+		},
+		{ // Incorrect test cases
+		}
+	);
 }
 
 TEST_CASE("CLowLexerFacade", "[lowlexer]")
 {
 	SECTION("can read tokens")
 	{
-		CLowLexerFacade lexer(testCase.data);
-
-		for (const auto &expected : testCase.expected)
+		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
 		{
-			REQUIRE(lexer.Next() == expected);
+			CLowLexerFacade lexer(testCase.data);
+
+			for (const auto &expected : testCase.expected)
+			{
+				REQUIRE(lexer.Next() == expected);
+			}
 		}
 	}
 
 	SECTION("can peek one token")
 	{
+		auto testCase = lexerFacadeTestCases.CorrectTestCases()[0];
 		CLowLexerFacade lexer(testCase.data);
 
 		REQUIRE(lexer.Peek() == testCase.expected[0]);
@@ -43,6 +71,7 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 
 	SECTION("can peek several tokens")
 	{
+		auto testCase = lexerFacadeTestCases.CorrectTestCases()[0];
 		CLowLexerFacade lexer(testCase.data);
 		auto peekedTokens = lexer.Peek(4);
 
@@ -59,7 +88,7 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 
 	SECTION("Can return position of next token")
 	{
-		CLowLexerFacade lexer(testCase.data);
+		CLowLexerFacade lexer(lexerFacadeTestCases.CorrectTestCases()[0].data);
 
 		REQUIRE(lexer.NextPosition() == 3);
 

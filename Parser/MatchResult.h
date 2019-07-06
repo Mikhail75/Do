@@ -8,18 +8,18 @@ namespace lng
 namespace parser
 {
 
-struct MatchErrorInfo
+struct MatchError
 {
-	MatchErrorInfo(token::TokenType expected_, token::TokenType current_, token::Token wrongToken_)
-		: expected(expected_), current(current_), wrongToken(wrongToken_)
+	MatchError(size_t position_, token::TokenType expected_, token::TokenType current_)
+		: position(position_), expected(expected_), current(current_)
 	{}
 
+	size_t position;
 	token::TokenType expected;
 	token::TokenType current;
-	token::Token wrongToken;
 };
 
-using OptMatchErrorInfo = std::optional<MatchErrorInfo>;
+using OptMatchError = std::optional<MatchError>;
 
 class MatchResult
 {
@@ -27,22 +27,22 @@ public:
 	MatchResult()
 	{}
 
-	MatchResult(const MatchErrorInfo& errorInfo)
-		: m_errorInfo(errorInfo)
+	MatchResult(const MatchError &matchError)
+		: m_matchError(matchError)
 	{}
 
-	OptMatchErrorInfo ErrorInfo() const
+	OptMatchError GetMatchError() const
 	{
-		return m_errorInfo;
+		return m_matchError;
 	}
 
 	operator bool() const
 	{
-		return m_errorInfo ? false : true;
+		return m_matchError ? false : true;
 	}
 
 private:
-	OptMatchErrorInfo m_errorInfo;
+	OptMatchError m_matchError;
 };
 
 } // namespace parser

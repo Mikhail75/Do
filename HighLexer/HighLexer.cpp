@@ -27,6 +27,7 @@ OptToken ReadToken(ILexer &lowlexer)
 			return token;
 		}
 	}
+
 	return lowlexer.Next();
 }
 
