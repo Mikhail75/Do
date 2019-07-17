@@ -62,27 +62,34 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 
 	SECTION("can peek one token")
 	{
-		auto testCase = lexerFacadeTestCases.CorrectTestCases()[0];
-		CLowLexerFacade lexer(testCase.data);
+		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
+		{
+			CLowLexerFacade lexer(testCase.data);
 
-		REQUIRE(lexer.Peek() == testCase.expected[0]);
-		REQUIRE(lexer.Next() == testCase.expected[0]);
+			for (const auto &expected : testCase.expected)
+			{
+				REQUIRE(lexer.Peek() == expected);
+				REQUIRE(lexer.Next() == expected);
+			}
+		}
 	}
 
 	SECTION("can peek several tokens")
 	{
-		auto testCase = lexerFacadeTestCases.CorrectTestCases()[0];
-		CLowLexerFacade lexer(testCase.data);
-		auto peekedTokens = lexer.Peek(4);
-
-		for (size_t i = 0; i < peekedTokens.size(); ++i)
+		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
 		{
-			REQUIRE(peekedTokens[i] == testCase.expected[i]);
-		}
+			CLowLexerFacade lexer(testCase.data);
+			auto peekedTokens = lexer.Peek(testCase.expected.size());
 
-		for (const auto &expected : testCase.expected)
-		{
-			REQUIRE(lexer.Next() == expected);
+			for (size_t i = 0; i < peekedTokens.size(); ++i)
+			{
+				REQUIRE(peekedTokens[i] == testCase.expected[i]);
+			}
+
+			for (const auto &expected : testCase.expected)
+			{
+				REQUIRE(lexer.Next() == expected);
+			}
 		}
 	}
 
