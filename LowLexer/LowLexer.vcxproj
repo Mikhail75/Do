@@ -152,6 +152,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ITokenCache.h" />
+    <ClInclude Include="TokenCache.h" />
     <ClInclude Include="ILexer.h" />
     <ClInclude Include="LowLexerFacade.h" />
     <ClInclude Include="LexerTypes.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="Token.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="TokenCache.cpp" />
     <ClCompile Include="LowLexerFacade.cpp" />
     <ClCompile Include="Read.cpp" />
     <ClCompile Include="ReadImpl.cpp" />

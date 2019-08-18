@@ -38,6 +38,13 @@ namespace
 					Token{TT_IDENTIFIER, {7, "main"}},
 					Token{TT_LEFT_CURLY_BRACKET, {12, "{"}},
 				}
+			},
+			{ // Test case #4
+				"[func",
+				{
+					Token{TT_LEFT_BRACKET, {0, "["}},
+					Token{TT_IDENTIFIER, {1, "func"}},
+				}
 			}
 		},
 		{ // Incorrect test cases
@@ -74,6 +81,32 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 		}
 	}
 
+	SECTION("should use cache when peek one token")
+	{
+		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
+		{
+			auto cache = make_shared<CTokenCache>();
+			CLowLexerFacade lexer(testCase.data, 0, cache);
+
+			size_t position = 0;
+
+			for (const auto &expected : testCase.expected)
+			{
+				lexer.Peek();
+				REQUIRE(cache->Read(position) == expected);
+
+				lexer.Next();
+				REQUIRE(cache->Read(position) == nullopt);
+
+				position = SkipSpaces({ testCase.data, position });
+				if (expected)
+				{
+					position += GetTokenLength(expected.value());
+				}
+			}
+		}
+	}
+
 	SECTION("can peek several tokens")
 	{
 		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
@@ -93,7 +126,30 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 		}
 	}
 
-	SECTION("Can return position of next token")
+	SECTION("should use cache when peek several tokens")
+	{
+		for (const auto &testCase : lexerFacadeTestCases.CorrectTestCases())
+		{
+			auto cache = make_shared<CTokenCache>();
+			CLowLexerFacade lexer(testCase.data, 0, cache);
+
+			auto peekedTokens = lexer.Peek(testCase.expected.size());
+			size_t position = 0;
+
+			for (const auto &expected : testCase.expected)
+			{
+				REQUIRE(cache->Read(position) == expected);
+
+				position = SkipSpaces({ testCase.data, position });
+				if (expected)
+				{
+					position += GetTokenLength(expected.value());
+				}
+			}
+		}
+	}
+
+	SECTION("can return position of next token")
 	{
 		CLowLexerFacade lexer(lexerFacadeTestCases.CorrectTestCases()[0].data);
 

@@ -21,6 +21,9 @@
     <Filter Include="LowLexerFacade">
       <UniqueIdentifier>{7fbe9b9f-4d04-48fd-802a-d40f53c5a314}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TokenCache">
+      <UniqueIdentifier>{f5d35218-acce-4aac-9b00-d667b7d665f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -47,6 +50,12 @@
     <ClInclude Include="LowLexerFacade.h">
       <Filter>LowLexerFacade</Filter>
     </ClInclude>
+    <ClInclude Include="ITokenCache.h">
+      <Filter>TokenCache</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenCache.h">
+      <Filter>TokenCache</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -69,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="LowLexerFacade.cpp">
       <Filter>LowLexerFacade</Filter>
+    </ClCompile>
+    <ClCompile Include="TokenCache.cpp">
+      <Filter>TokenCache</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
