@@ -18,6 +18,7 @@ bool NoSpacesBetweenTokens(const token::TokenList &tokens);
 
 token::OptToken ReadFloatNumber(ILexer &lowlexer);
 token::OptToken ReadMainFunction(ILexer &lowlexer);
+token::OptToken ReadFunction(ILexer &lowlexer);
 
 token::OptToken ReadToken(ILexer &lowlexer);
 

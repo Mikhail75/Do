@@ -43,5 +43,22 @@ OptToken ReadMainFunction(ILexer &lowlexer)
 	return nullopt;
 }
 
+OptToken ReadFunction(ILexer &lowlexer)
+{
+	auto tokens = lowlexer.Peek(2);
+	TokenTypesList expected = { TT_LEFT_BRACKET, TT_IDENTIFIER };
+
+	if (MatchTokensByTypes(tokens, expected))
+	{
+		if (MatchTokensByValues({ { tokens[1], "func" } }))
+		{
+			auto position = tokens[0].data.position;
+			return Token{ TT_FUNCTION, {position} };
+		}
+	}
+
+	return nullopt;
+}
+
 } // namespace highlexer
 } // namespace lng
