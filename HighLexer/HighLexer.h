@@ -16,6 +16,9 @@ bool MatchTokensByValues(const std::vector<std::pair<token::Token, std::string>>
 bool SpacesBetweenTokens(const token::TokenList &tokens);
 bool NoSpacesBetweenTokens(const token::TokenList &tokens);
 
+token::OptToken ReadTokenImpl(ILexer &lowlexer, const TokenTypesList &expected, const std::vector<std::function<bool(const token::TokenList&)>> &predicates,
+	const std::function<token::Token(const token::TokenList&)> &onSuccess);
+
 token::OptToken ReadFloatNumber(ILexer &lowlexer);
 token::OptToken ReadMainFunction(ILexer &lowlexer);
 token::OptToken ReadFunction(ILexer &lowlexer);
