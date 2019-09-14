@@ -158,19 +158,4 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 			}
 		}
 	}
-
-	SECTION("can return position of next token")
-	{
-		CLowLexerFacade lexer(lexerFacadeTestCases.CorrectTestCases()[0].data);
-
-		REQUIRE(lexer.NextPosition() == 3);
-
-		lexer.Next();
-		REQUIRE(lexer.NextPosition() == 5);
-
-		lexer.Next();
-		lexer.Next();
-		lexer.Next();
-		REQUIRE(lexer.NextPosition() == 32);
-	}
 }

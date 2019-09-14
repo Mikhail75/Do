@@ -53,11 +53,6 @@ TokenList CLowLexerFacade::Peek(size_t numberOfTokens)
 	return tokens;
 }
 
-size_t CLowLexerFacade::NextPosition()
-{
-	return SkipSpaces({ m_raw, m_position });
-}
-
 OptToken CLowLexerFacade::ReadTokenImpl(size_t position)
 {
 	if (auto token = m_cache->Read(position))

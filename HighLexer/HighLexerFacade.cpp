@@ -43,11 +43,6 @@ TokenList CHighLexerFacade::Peek(size_t numberOfTokens)
 	return tokens;
 }
 
-size_t CHighLexerFacade::NextPosition()
-{
-	return size_t();
-}
-
 OptToken CHighLexerFacade::ReadTokenImpl(size_t number)
 {
 	if (number < m_cache.size())

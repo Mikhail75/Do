@@ -42,12 +42,7 @@ token::TokenList CMockLowLexer::Peek(size_t numberOfTokens)
 	return tokens;
 }
 
-size_t CMockLowLexer::NextPosition()
-{
-	throw std::logic_error("This method cannot be used in this class");
-}
-
-	token::OptToken CMockLowLexer::NextImpl()
+token::OptToken CMockLowLexer::NextImpl()
 {
 	if (m_position < m_tokens.size())
 	{
