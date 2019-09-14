@@ -155,11 +155,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="HighLexerFacade.h" />
     <ClInclude Include="HighLexer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HighLexerFacade.cpp" />
     <ClCompile Include="Read.cpp" />
     <ClCompile Include="ReadImpl.cpp" />
     <ClCompile Include="HighLexer.cpp" />

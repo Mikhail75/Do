@@ -114,6 +114,16 @@ TEST_CASE("CLowLexerFacade", "[lowlexer]")
 			CLowLexerFacade lexer(testCase.data);
 			auto peekedTokens = lexer.Peek(testCase.expected.size());
 
+			size_t expectedPeekedTokensCount = 0;
+			for (const auto &expected : testCase.expected)
+			{
+				if (expected != nullopt)
+				{
+					++expectedPeekedTokensCount;
+				}
+			}
+			REQUIRE(peekedTokens.size() == expectedPeekedTokensCount);
+
 			for (size_t i = 0; i < peekedTokens.size(); ++i)
 			{
 				REQUIRE(peekedTokens[i] == testCase.expected[i]);

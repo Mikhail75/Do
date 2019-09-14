@@ -16,6 +16,9 @@
     <Filter Include="Lexer">
       <UniqueIdentifier>{901be4f9-4e8b-4a8b-9414-32d9a2cf97f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="HighLexerFacade">
+      <UniqueIdentifier>{7281ed3c-e122-40a4-bc2d-c6749fbfa5c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="HighLexer.h">
       <Filter>Lexer</Filter>
+    </ClInclude>
+    <ClInclude Include="HighLexerFacade.h">
+      <Filter>HighLexerFacade</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +46,9 @@
     </ClCompile>
     <ClCompile Include="ReadImpl.cpp">
       <Filter>Lexer</Filter>
+    </ClCompile>
+    <ClCompile Include="HighLexerFacade.cpp">
+      <Filter>HighLexerFacade</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
